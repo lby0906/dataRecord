@@ -1,5 +1,6 @@
-package com.dataRecord.application;
+package com.dataRecord;
 
+import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -8,6 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @date 2023年12月11日 19:54
  * desc:
  */
+@MapperScan("com.dataRecord.mapper")
 @SpringBootApplication
 public class DataRecordApplication {
 

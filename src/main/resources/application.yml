@@ -1,0 +1,9 @@
+server:
+  port: 8088
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://rm-cn-x0r3iq9oq000mw5o.rwlb.rds.aliyuncs.com:3306/dataRecord?useSSL=false&serverTimezone=UTC
+    username: liboyang
+    password: MYSQL_liboyang
