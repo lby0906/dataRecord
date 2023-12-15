@@ -5,6 +5,7 @@ import com.dataRecord.domain.entity.Bound;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author : iboyang
@@ -14,5 +15,10 @@ import java.util.Date;
 @Mapper
 public interface BoundMapper extends BaseMapper<Bound> {
 
-    Bound findBoundByDate(Date day);
+    List<Bound> findBoundByDate(Date day);
+
+    Bound findBoundById(Integer id);
+
+    List<Bound> findBoundByYearAndMonth(String year, String month);
+
 }

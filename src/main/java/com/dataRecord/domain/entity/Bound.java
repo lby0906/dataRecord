@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -32,7 +33,8 @@ public class Bound {
     @TableField(value = "outbound_count")
     private Integer outboundCount;
 
-    //入库数量
+    //日期
+    @JsonFormat(timezone = "GMT+8",pattern = "yyyy-MM-dd")
     @TableField(value = "day")
     private Date day;
 

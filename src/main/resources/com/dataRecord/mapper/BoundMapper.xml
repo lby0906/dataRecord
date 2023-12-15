@@ -6,21 +6,45 @@
     <resultMap id="BoundResult" type="com.dataRecord.domain.entity.Bound" autoMapping="true">
         <!-- id标签对应Bound表的主键  property对应Bound类的属性  column对应Bound表的字段-->
         <id property="id" column="id"></id>
-        <result column="inboundCount" property="inbound_count" />
-        <result column="outboundCount" property="outbound_count" />
-        <result column="day" property="day" />
+        <result column="inboundCount" property="inbound_count"/>
+        <result column="outboundCount" property="outbound_count"/>
+        <result column="day" property="day"/>
+
+        <association property="spces"
+                     resultMap="com.dataRecord.mapper.SpcesMapper.SpcesResult">
+        </association>
+
         <!--
         association:方法返回值是一个对象时使用该标签
         javaType表示返回值类型
         当mybatis 执行完 student表的查询操作后，就会自动执行 MajorMapper接口中的 findMajorById的方法
         把查询得到的信息封装到Student类下的major对象
         -->
-        <association property="spces" javaType="spces" column="id"
-                     select="com.dataRecord.mapper.findSpcesByid." fetchType="eager" >
-        </association>
+        <!--        <association property="spces" javaType="spces" column="id"-->
+        <!--                     select="com.dataRecord.mapper.findSpcesByid" fetchType="eager" >-->
+        <!--        </association>-->
     </resultMap>
     <!-- 接口中对应的方法名 -->
     <select id="findBoundByDate" resultMap="BoundResult">
-        select * from bound where day = #{day}
+        select *
+        from bound
+                 left join spces on bound.sid = spces.id
+        where
+            day = #{date}
     </select>
+
+    <select id="findBoundByYearAndMonth" resultMap="BoundResult">
+        select *
+        from bound
+                 left join spces on bound.sid = spces.id
+        where year (day) = #{year}
+          and month (day) = #{month}
+    </select>
+
+    <select id="findBoundById" resultMap="BoundResult">
+        select *
+        from bound
+        where id = #{id}
+    </select>
+
 </mapper>

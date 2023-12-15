@@ -7,6 +7,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
@@ -25,7 +26,7 @@ public class DataRecordTest {
     private BoundMapper boundMapper;
 
     @Test
-    public void test(){
+    public void test() throws ParseException {
 //        System.out.println(spcesMapper.selectById(160));
 
 //        System.out.println(spcesMapper.findSpcesByid(1));
@@ -35,8 +36,27 @@ public class DataRecordTest {
 //        System.out.println(bound);
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 
-        Date date = new Date();
-        boundMapper.findBoundByDate(date);
+//        Date date = new Date();
+
+//        String format = sdf.format(date);
+
+//        Bound boundById = boundMapper.findBoundById(1);
+//
+//        String strDate = "2023-12-13";
+////
+//        Date date = sdf.parse(strDate);
+////
+//        Bound boundByDate = boundMapper.findBoundByDate(date);
+//        System.out.println(boundByDate);
+
+
+        String  year = "2023";
+        String  month = "12";
+
+        System.out.println(boundMapper.findBoundByYearAndMonth(year,month));
+
+
+
 
     }
 }
