@@ -35,7 +35,7 @@ public class Inventory {
     private Double leftArt;
 
     //剩余库存
-    @TableField(value = "leftInv")
+    @TableField(value = "left_inv")
     private Integer leftInv;
 
     //当月入库合计
@@ -48,10 +48,13 @@ public class Inventory {
 
     //年份
     @TableField(value = "year")
-    private Year year;
+    private Integer year;
 
     //月份
     @TableField(value = "month")
     private Integer month;
+
+    @TableField(value = "s_id")
+    private Integer sId;
 
 }

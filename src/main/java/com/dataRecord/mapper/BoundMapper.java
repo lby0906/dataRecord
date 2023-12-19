@@ -19,6 +19,8 @@ public interface BoundMapper extends BaseMapper<Bound> {
 
     Bound findBoundById(Integer id);
 
-    List<Bound> findBoundByYearAndMonth(String year, String month);
+    List<Bound> findBoundByYearAndMonth(Date day);
+
+    List<Bound> findBoundBySIdAndDate(Integer sId,Date date);
 
 }

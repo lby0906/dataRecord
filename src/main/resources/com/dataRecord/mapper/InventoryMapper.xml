@@ -1,16 +1,29 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.dataRecord.mapper.InventoryMapper">
-<!--    <resultMap id="orderMap" type="com.quanxiaoha.mybatisplusdemo.model.OrderVO">-->
-<!--        <result property="userName" column="name"/>-->
-<!--        <result property="userAge" column="age"/>-->
-<!--        <result property="userGender" column="gender"/>-->
-<!--        <result property="orderId" column="order_id"/>-->
-<!--        <result property="userId" column="user_id"/>-->
-<!--        <result property="goodsName" column="goods_name"/>-->
-<!--        <result property="goodsPrice" column="goods_price"/>-->
-<!--    </resultMap>-->
-<!--    <select id="selectOrderPage" resultMap="orderMap">-->
-<!--select u.name, u.age, u.gender, o.order_id, o.goods_name, o.goods_price from t_user as u left join t_order as o on u.id = o.user_id ${ew.customSqlSegment}-->
-<!--</select>-->
+    <!--    &lt;!&ndash; id:resultMap的名字  type:方法返回值类型  autoMapper:自动映射 &ndash;&gt;-->
+    <!--    <resultMap id="SpcesResult" type="com.dataRecord.domain.entity.Spces" autoMapping="true">-->
+    <!--        &lt;!&ndash; id标签对应Spces表的主键  property对应Spces类的属性  column对应Spces表的字段&ndash;&gt;-->
+    <!--        <id property="id" column="id"></id>-->
+    <!--        <result column="spcesName" property="spces_name"/>-->
+    <!--        <result column="pw" property="pw"/>-->
+    <!--    </resultMap>-->
+
+    <!-- 接口中对应的方法名 -->
+    <select id="findLeftInvByYearAndMonthAndSid" resultType="java.lang.Integer">
+        select left_inv
+        from inventory
+        where year = #{year}
+          and month = #{month}
+          and s_id = #{sid}
+    </select>
+
+    <select id="findInventoryBySIdAndMonth" resultType="com.dataRecord.domain.entity.Inventory">
+        select *
+        from inventory
+        where year = year (#{date})
+          and month = month (#{date})
+          and s_id = #{sId}
+    </select>
 </mapper>

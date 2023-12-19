@@ -29,5 +29,5 @@ public class Spces {
 
     //单支重
     @TableField(value = "pw")
-    private String pw;
+    private Double pw;
 }

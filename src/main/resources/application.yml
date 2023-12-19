@@ -11,3 +11,18 @@ spring:
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+
+xxl:
+  job:
+    admin:
+      addresses: http://localhost:8090/xxl-job-admin/
+    accessToken: default_token
+    executor:
+      appname: zpa-job
+      #ip: 10.123.1.53
+      port: 9999
+      # 日志地址
+      logpath: /Users/admin/Desktop/java_project/xxl-job/jobhandler
+      # 日志保存时间
+      logretentiondays: 30

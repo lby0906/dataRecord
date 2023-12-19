@@ -28,7 +28,7 @@
     <select id="findBoundByDate" resultMap="BoundResult">
         select *
         from bound
-                 left join spces on bound.sid = spces.id
+                 left join spces on bound.s_id = spces.id
         where
             day = #{date}
     </select>
@@ -36,15 +36,23 @@
     <select id="findBoundByYearAndMonth" resultMap="BoundResult">
         select *
         from bound
-                 left join spces on bound.sid = spces.id
-        where year (day) = #{year}
-          and month (day) = #{month}
+                 left join spces on bound.s_id = spces.id
+        where year (day) = year (#{date})
+          and month (day) = month (#{date})
     </select>
 
     <select id="findBoundById" resultMap="BoundResult">
         select *
         from bound
         where id = #{id}
+    </select>
+
+    <select id="findBoundBySIdAndDate" resultMap="BoundResult">
+        select *
+        from bound
+                 left join spces on bound.s_id = spces.id
+        where s_id = #{sId} and year (day) = year (#{date})
+          and month (day) = month (#{date})
     </select>
 
 </mapper>

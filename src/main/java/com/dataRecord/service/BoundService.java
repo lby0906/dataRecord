@@ -3,6 +3,7 @@ package com.dataRecord.service;
 import com.dataRecord.domain.entity.Bound;
 
 import java.text.ParseException;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -12,7 +13,13 @@ import java.util.List;
  */
 public interface BoundService {
 
-    List<Bound> findBoundByDate(String day) throws ParseException;
+    List<Bound> findBoundByDate(Date day) throws ParseException;
 
-    List<Bound> findBoundByYearAndMonth(String year, String month);
+    List<Bound> findBoundByYearAndMonth(Date day) throws ParseException;
+
+    Boolean insertBoundBySpceses();
+
+    Boolean updateBoundInBoundById(Integer id,Integer inBoundCount);
+
+    Boolean updateBoundOutnBoundById(Integer id,Integer outBoundCount);
 }
