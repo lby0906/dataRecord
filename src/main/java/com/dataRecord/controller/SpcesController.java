@@ -32,10 +32,22 @@ public class SpcesController {
 
     @PostMapping("/add")
     public AjaxResult addSpces(Spces spces){
-        boolean b = spcesService.addSpces(spces);
-        if(b){
-            return AjaxResult.success("新增成功");
+        if(spcesService.addSpces(spces)){
+            return AjaxResult.success("新增成功！");
         }
+        return AjaxResult.error();
+    }
+
+    @PostMapping("/update")
+    public AjaxResult updateSpces(Spces spces){
+        if(spcesService.addSpces(spces)){
+            return AjaxResult.success("修改成功！");
+        }
+        return AjaxResult.error();
+    }
+
+    @PostMapping("/delete")
+    public AjaxResult deleteSpces(Integer id){
         return AjaxResult.error();
     }
 
