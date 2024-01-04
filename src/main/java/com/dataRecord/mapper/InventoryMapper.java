@@ -5,6 +5,7 @@ import com.dataRecord.domain.entity.Inventory;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @author : iboyang
@@ -17,4 +18,7 @@ public interface InventoryMapper extends BaseMapper<Inventory> {
     Integer findLeftInvByYearAndMonthAndSid(Integer year,Integer month,Integer sid);
 
     Inventory findInventoryBySIdAndMonth(Integer sId, Date date);
+
+
+    List<Inventory> findInventoryByDate(Date date);
 }

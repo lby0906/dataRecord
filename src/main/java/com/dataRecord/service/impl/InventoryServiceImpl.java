@@ -98,4 +98,10 @@ public class InventoryServiceImpl implements InventoryService {
         }
         return false;
     }
+
+    @Override
+    public List<Inventory> selectInventoryByDate(Date date) {
+        List<Inventory> inventoryByDate = inventoryMapper.findInventoryByDate(date);
+        return inventoryByDate;
+    }
 }

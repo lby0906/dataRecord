@@ -26,4 +26,11 @@
           and month = month (#{date})
           and s_id = #{sId}
     </select>
+
+    <select id="findInventoryByDate" resultType="com.dataRecord.domain.entity.Inventory">
+        select *
+        from inventory
+        where year = year (#{date})
+          and month = month (#{date})
+    </select>
 </mapper>

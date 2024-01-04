@@ -30,7 +30,7 @@ public class SpcesController {
         return AjaxResult.success(spcesList);
     }
 
-    @PostMapping("/add")
+    @PostMapping("/addSpces")
     public AjaxResult addSpces(Spces spces){
         if(spcesService.addSpces(spces)){
             return AjaxResult.success("新增成功！");
@@ -38,16 +38,19 @@ public class SpcesController {
         return AjaxResult.error();
     }
 
-    @PostMapping("/update")
-    public AjaxResult updateSpces(Spces spces){
-        if(spcesService.addSpces(spces)){
-            return AjaxResult.success("修改成功！");
+    @PostMapping("/exitSpces")
+    public AjaxResult exitSpces(Spces spces){
+        if(spcesService.updateSpces(spces)){
+            return AjaxResult.success("编辑成功！");
         }
         return AjaxResult.error();
     }
 
     @PostMapping("/delete")
     public AjaxResult deleteSpces(Integer id){
+        if(spcesService.deleteSpces(id)){
+            return AjaxResult.success("删除成功！");
+        }
         return AjaxResult.error();
     }
 

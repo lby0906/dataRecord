@@ -31,8 +31,26 @@ public class SpcesServiceImpl implements SpcesService {
 
     @Override
     public boolean addSpces(Spces spces) {
-        int insert = spcesMapper.insert(spces);
-        if(insert > 0){
+        int num = spcesMapper.insert(spces);
+        if(num > 0){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean updateSpces(Spces spces) {
+        int num = spcesMapper.updateById(spces);
+        if(num > 0){
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public boolean deleteSpces(Integer id) {
+        int num = spcesMapper.deleteById(id);
+        if(num > 0){
             return true;
         }
         return false;

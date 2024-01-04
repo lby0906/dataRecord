@@ -11,7 +11,11 @@ import java.util.List;
  */
 public interface SpcesService {
 
-    public List<Spces> getSpcesList();
+    List<Spces> getSpcesList();
 
-    public boolean addSpces(Spces spces);
+    boolean addSpces(Spces spces);
+
+    boolean updateSpces(Spces spces);
+
+    boolean deleteSpces(Integer id);
 }
